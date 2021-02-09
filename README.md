@@ -40,7 +40,7 @@ docker build -t debezium-connect -f debezium.Dockerfile .
 ### Bring up the entire environment
 
 ```
-docker-compose up -d
+docker-compose up
 ```
 
 ## Loading data into Postgres
@@ -48,7 +48,10 @@ docker-compose up -d
 We will bring up a container with a psql command line, mount our local data
 files inside, create a database called `students`, and load the data on
 students' chance of admission into the `admission` table.
-
+```
+docker network ls
+```
+Check if there is postgres-kafka-demo or postgres kafka demo
 ```
 docker run -it --rm --network=postgres-kafka-demo_default \
          -v $PWD:/home/data/ \
